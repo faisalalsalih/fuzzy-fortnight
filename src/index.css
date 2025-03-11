@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    font-family: 'General Sans', sans-serif;
+    width: 100dvw;
+    background-color: #dfdff0;
+    overflow-x: hidden;
+}
+
+
+
+@layer base{
+    @font-face {
+        font-family: 'circular-web';
+        src: url(/anime/public/fonts/circularweb-book.woff2) format('woff2');
+    }
+
+    @font-face {
+        font-family: 'general';
+        src: url(/anime/public/fonts/general.woff2) format('woff2');
+    }
+
+    @font-face {
+        font-family: 'robert-medium';
+        src: url(/anime/public/fonts/robert-medium.woff2) format('woff2');
+    }
+
+    @font-face {
+        font-family: 'zentry-regular';
+        src: url(/anime/public/fonts/zentry-regular.woff2) format('woff2');
+    }
+}
