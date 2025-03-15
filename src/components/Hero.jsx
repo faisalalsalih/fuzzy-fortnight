@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import Button from './Button';
 import { TiLocationArrow } from 'react-icons/ti';
+import { useGSAP } from '@gsap/react'
 
 
 const Hero = () => {
@@ -28,6 +29,15 @@ const Hero = () => {
 
     // This function help in to check our next video index
     const upcomingvideoindex = (currentIndex % totalVideos) + 1; 
+
+    // Gsap Animation is here
+    useGSAP(() => {
+        if(Hasclicked){
+            gsap.set("#next-video", {visibility: 'visible'});
+
+            gsap.to('#next-video')
+        }
+    })
 
   return (
     <div className='relative h-dvh w-screen overflow-x-hidden'>
@@ -70,10 +80,13 @@ const Hero = () => {
                 <div className="mt-24 px-5 sm;px-10">
                     <h1 className='special-font hero-heading text-blue-100'>redefi<b>n</b>e</h1>
                     <p className='mb-5 max-w-64 font-robert-regular text-blue-100'>Enter the Metagame Layer <br /> Unleash the Play Economy</p>
-                    <Button id='watch-trailer' title='Watch Trailer' leftIcon={<TiLocationArrow />}/>
+                    <Button id='watch-trailer' title='Watch Trailer' leftIcon={<TiLocationArrow />} containerClass={"bg-yellow-300 flex-center gap-1"}/>
                 </div>
             </div>
         </div>
+
+        <h1 className='special-font hero-heading absolute bottom-5 right-5  text-blue-75'>G<b>a</b>ming</h1>
+
     </div>
   )
 }
