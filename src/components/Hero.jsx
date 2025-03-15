@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef } from 'react';
 import Button from './Button';
 import { TiLocationArrow } from 'react-icons/ti';
-import { useGSAP } from '@gsap/react'
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 
 const Hero = () => {
@@ -35,15 +36,30 @@ const Hero = () => {
         if(Hasclicked){
             gsap.set("#next-video", {visibility: 'visible'});
 
-            gsap.to('#next-video')
+            gsap.to('#next-video', {
+                transformOrigin: 'center center',
+                scale: 1,
+                width: '100%',
+                height: '100%',
+                duration: 1,
+                ease: 'power1.inOut',
+                onStart: () => nextvideoRef.current.play(),
+            })
+
+            gsap.from('current-video', {
+                transformOrigin: 'center center',
+                scale: 0,
+                duration: 1.5,
+                ease: 'power1.inOut'
+            })
         }
-    })
+    }, {dependencies: [currentIndex], revertOnUpdate:true})
 
   return (
     <div className='relative h-dvh w-screen overflow-x-hidden'>
         <div id='videoframe' className='relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75'>
             <div>
-                <div className="mask-clip-path absolute-center z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
+                <div className="mask-clip-path absolute-center  z-50 mt-8 size-54 sm:size-64 cursor-pointer overflow-hidden rounded-lg">
 
                     <div onClick={handleminiclicked} className='origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100'>
                         <video ref={nextvideoRef}
@@ -56,6 +72,7 @@ const Hero = () => {
                     </div>
                 </div>
 
+                {/* invisible video tag is here */}
                 <video 
                 ref={nextvideoRef}
                 src={getvideosource(currentIndex)}
@@ -68,7 +85,7 @@ const Hero = () => {
 
                 <video 
                 src={getvideosource(currentIndex === totalVideos - 1 ? 1 : currentIndex)}
-                // autoPlay
+                autoPlay
                 loop
                 muted
                 className='absolute left-0 top-0 size-full object-cover object-center'
