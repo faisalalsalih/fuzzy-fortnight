@@ -55,6 +55,15 @@ const Hero = () => {
         }
     }, {dependencies: [currentIndex], revertOnUpdate:true})
 
+
+    // Another gsap for change the clip path
+    useGSAP(() => {
+        gsap.set('#videoframe', {
+            clipPath: 'polygon(14% 0%, 72% 0%, 90% 90%, 0% 100%)',
+            borderRadius: '0 0 40% 10%'
+        })
+    })
+
   return (
     <div className='relative h-dvh w-screen overflow-x-hidden'>
         <div id='videoframe' className='relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75'>
@@ -64,6 +73,7 @@ const Hero = () => {
                     <div onClick={handleminiclicked} className='origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100'>
                         <video ref={nextvideoRef}
                          src={getvideosource(upcomingvideoindex)}
+                         autoPlay
                           loop
                           muted
                           id='current-video'
@@ -102,8 +112,7 @@ const Hero = () => {
             </div>
         </div>
 
-        <h1 className='special-font hero-heading absolute bottom-5 right-5  text-blue-75'>G<b>a</b>ming</h1>
-
+        <h1 className='special-font hero-heading absolute bottom-5 right-5  text-black-400'>G<b>a</b>ming</h1>
     </div>
   )
 }
