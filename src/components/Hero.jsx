@@ -73,8 +73,8 @@ const Hero = () => {
             ease: 'power1.inOut',
             scrollTrigger: {
                 trigger: '#videoframe',
-                start: 'center',
-                end: 'bottom',
+                start: 'center center',
+                end: 'bottom center',
                 scrub: true
             }
         })
