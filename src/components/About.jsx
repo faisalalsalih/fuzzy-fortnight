@@ -1,7 +1,9 @@
 import React from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
+gsap.registerPlugin(ScrollTrigger)
 
 const About = () => {
 
@@ -15,6 +17,12 @@ const About = () => {
         pin: true,
         pinSpacing: true,
       }
+    })
+
+    clipanimation.to('.mask-clip-path', {
+      width: '100vw',
+      height: '100vh',
+      borderRadius: 0
     })
   })
   return (
@@ -33,7 +41,7 @@ const About = () => {
     </div>
     </div>
 
-    <div className="h-dvh w-screen" id='clip'>
+    <div className="h-dvh w-screen" id="clip">
       <div className="mask-clip-path about-image">
         <img src="./img/about.webp" alt="about image" className='absolute left-0 top-0 size-full object-cover'/>
       </div>
