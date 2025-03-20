@@ -1,6 +1,22 @@
 import React from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+
 
 const About = () => {
+
+  useGSAP(() => {
+    const clipanimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#clip',
+        start: 'center center',
+        end: '+=800 center',
+        scrub: 0.5,
+        pin: true,
+        pinSpacing: true,
+      }
+    })
+  })
   return (
     <div id="about" className='min-h-screen  w-screen'>
     <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
@@ -10,8 +26,19 @@ const About = () => {
       Disc<b>o</b>ver the world's <br /> l<b>a</b>rgest shared
       adventure
     </div>
-      
-    </div> 
+
+    <div className="about-subtext">
+      <p>The Game of Games Begin Your Life, now and epic MMORPG</p>
+      <p>Zentry unites every player from countless games and platforms</p>
+    </div>
+    </div>
+
+    <div className="h-dvh w-screen" id='clip'>
+      <div className="mask-clip-path about-image">
+        <img src="./img/about.webp" alt="about image" className='absolute left-0 top-0 size-full object-cover'/>
+      </div>
+    </div>
+
     </div>
   )
 }
