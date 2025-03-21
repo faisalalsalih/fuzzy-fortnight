@@ -101,7 +101,7 @@ const Hero = () => {
         )}
         <div id='videoframe' className='relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75'>
             <div>
-                <div className="mask-clip-path absolute-center  z-50 mt-8 size-54 sm:size-64 cursor-pointer overflow-hidden rounded-lg">
+                <div className="mask-clip-path absolute-center  z-50 mt-12 size-54 sm:size-64 cursor-pointer overflow-hidden rounded-lg">
 
                     <div onClick={handleminiclicked} className='origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100'>
                         <video ref={nextvideoRef}
@@ -113,6 +113,7 @@ const Hero = () => {
                           className='size-64 origin-center scale-150 object-cover object-center'
                           onLoadedData={handlevideoload}/>
                     </div>
+                    
                 </div>
 
                 {/* invisible video tag is here */}
@@ -122,7 +123,7 @@ const Hero = () => {
                 loop
                 muted
                 id='next-video'
-                className='absolute-center invisible absolute z-20 size-64 object-cover object-center'
+                className='absolute-center invisible absolute  z-20 size-64 object-cover object-center'
                 onLoadedData={handlevideoload}/>
 
 
