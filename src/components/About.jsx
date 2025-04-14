@@ -1,7 +1,9 @@
 import React from 'react'
 import { useGSAP } from '@gsap/react'
-
-
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+import Animatedtitle from './Animatedtitle';
+gsap.registerPlugin(ScrollTrigger);
 
 
 const About = () => {
@@ -11,8 +13,17 @@ const About = () => {
       scrollTrigger: {
         trigger: '#clip',
         start: 'center center',
-        end: '+=800 center'
+        end: '+=800 center',
+        scrub: 0.5,
+        pin: true,
+        pinSpacing: true
       }
+    })
+
+    clipAnimation.to('.mask-clip-path', {
+      width: '100vw',
+      height: '100vh',
+      borderRadius: '0'
     })
   })
   return (
@@ -20,9 +31,7 @@ const About = () => {
       <div className='relative mb-8 mt-36 flex flex-col items-center gap-5'>
         <h2 className='font-general text-sm uppercase md:text-[10px]'>Welcome to Zentry</h2>
 
-        <div className='mt-5 text-center text-4xl uppercase leading-[0.8] md:text-[6rem]'>
-          Discover the world of anime and largest
-        </div>
+        <Animatedtitle title="Disc<b>o</b>er the world's <br /> l<b>a</b>rgest shared Adventure" containerClass="mt-5 !text-black text-center" />
 
         <div className="about-subtext">
           <p>The Game of Games Begin-your life now an epic 
