@@ -144,12 +144,13 @@ body {
 }
 
 .indicator-line {
-  @apply h-1 w-px rounded-full bg-white transition-all duration-200 ease-in-out;
+  @apply h-2 w-1 rounded-full bg-white transition-all duration-200 ease-in-out;
 }
 
 .indicator-line.active {
   animation: indicator-line 0.5s ease infinite;
   animation-delay: calc(var(--animation-order) * 0.1s);
+  height: 1rem;
 }
 
 @keyframes indicator-line {
