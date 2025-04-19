@@ -8,29 +8,25 @@ const BentoTilt = ({children, className}) => {
     const itemRef = useRef();
 
     const handlemousemove = (e) => {
-        if(!itemRef.current) return;
+        if (!itemRef.current) return;
 
-        const {left, top, width, height} = itemRef.current.getBoundingClientRect();
-
+        const { left, top, width } = itemRef.current.getBoundingClientRect();
 
         const relativeX = (e.clientX - left) / width;
         const relativeY = (e.clientY - top) / width;
 
-
         const tiltX = (relativeX - 0.5) * 5;
         const tiltY = (relativeY - 0.5) * -5;
 
-
         const newTransform = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(0.95, 0.95, 0.95)`;
 
-
         settransformStyle(newTransform);
-    }
+    };
 
-
-    const handlemouseleave = (e) => {
-        settransformStyle('');
-    }
+    const handlemouseleave = () => {
+        // Reset the transform style when the mouse leaves the element
+        settransformStyle('perspective(700px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)');
+    };
     return (
         <div className={className} ref={itemRef} onMouseMove={handlemousemove} onMouseLeave={handlemouseleave} style={{transform: transformStyle}}>
             {children}
