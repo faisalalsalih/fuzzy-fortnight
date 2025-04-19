@@ -3,11 +3,11 @@ const BentoCard = ({src, title, description}) => {
         <div className="relative size-full">
             <video src={src} loop muted autoPlay className="absolute left-0 top-0 object-cover object-center"/>
 
-            <div className="relative z-10 flex size-full flex-col justify-between text-blue-50">
+            <div className="relative z-10 flex size-full flex-col justify-between text-blue-50 p-5">
                 <div>
                     <h1 className="bento-title special-font">{title}</h1>
                     {description && (
-                        <p className="mt-3 max-w-64 text-xs">{description}</p>
+                        <p className="mt-3 max-w-64 text-xs md:text-base">{description}</p>
                     )}
                 </div>
             </div>
@@ -33,8 +33,18 @@ const Features = () => {
              />
         </div>
 
-        <div>
-            
+        <div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
+
+            <div className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+                <BentoCard 
+                src="videos/feature-2.mp4"
+                title={<>zig<b>m</b>a</>}
+                description="An anime and gaming-inspired NFT collection - the IP primed for expansion."/>
+            </div>
+
+            <div className="bento-title_1 row-span-1 ms-32 md:col-span-2">
+
+            </div>
         </div>
         </div>
     </section>
