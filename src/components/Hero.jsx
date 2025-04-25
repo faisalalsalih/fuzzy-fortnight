@@ -110,7 +110,7 @@ const Hero = () => {
                           loop
                           muted
                           id='current-video'
-                          className='size-64 origin-center scale-150 object-cover object-center'
+                          className='size-64 origin-center scale-150 object-cover object-center rounded-lg'
                           onLoadedData={handlevideoload}/>
                     </div>
                     
@@ -123,7 +123,7 @@ const Hero = () => {
                 loop
                 muted
                 id='next-video'
-                className='absolute-center invisible absolute  z-20 size-64 object-cover object-center'
+                className='absolute-center invisible z-20 size-64 object-cover object-center rounded-lg'
                 onLoadedData={handlevideoload}/>
 
 
@@ -132,7 +132,7 @@ const Hero = () => {
                 autoPlay
                 loop
                 muted
-                className='absolute left-0 top-0 size-full object-cover object-center'
+                className='absolute left-0 top-0 size-full object-cover object-center rounded-lg'
                 onLoadedData={handlevideoload}/>
             </div>
             <h1 className='special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75'>G<b>a</b>ming</h1>
